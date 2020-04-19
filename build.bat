@@ -1,1 +1,1 @@
-pyarmor pack -e %* dealer.py
+pyarmor pack -e "%* " dealer.py

