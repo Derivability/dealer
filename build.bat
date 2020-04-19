@@ -1,0 +1,1 @@
+pyarmor pack -e %* dealer.py
